@@ -16,7 +16,7 @@
           uses: aws-actions/configure-aws-credentials@v1.7.0
           with:
             aws-region: eu-west-2
-            role-to-assume: arn:aws:iam::386499475784:role/preview
+            role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
             role-session-name: deploy
       
         - name: Deploy
