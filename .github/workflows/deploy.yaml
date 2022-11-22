@@ -22,6 +22,10 @@
             aws-region: eu-west-2
             role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
             role-session-name: deploy
+
+        - name: Update Kubeconfig
+          run: |
+            aws eks update-kubeconfig --name eks-dev --region eu-west-2 --role-arn ${{ secrets.ROLE_TO_ASSUME }}
       
         - name: Deploy
           uses: cloudposse/github-action-deploy-helmfile@main
