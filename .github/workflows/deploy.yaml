@@ -4,6 +4,10 @@
       branches: [ 'main' ]
       types: [opened, synchronize, reopened]
 
+  permissions:
+    id-token: write # required to use OIDC authentication
+    contents: read # required to checkout the code from the repo
+
   jobs:
     deploy:
       runs-on: ubuntu-latest
@@ -16,8 +20,12 @@
           uses: aws-actions/configure-aws-credentials@v1.7.0
           with:
             aws-region: eu-west-2
-            role-to-assume: arn:aws:iam::386499475784:role/preview
+            role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
             role-session-name: deploy
+
+        - name: Update Kubeconfig
+          run: |
+            aws eks update-kubeconfig --name eks-dev --region eu-west-2 --role-arn ${{ secrets.ROLE_TO_ASSUME }}
       
         - name: Deploy
           uses: cloudposse/github-action-deploy-helmfile@main
