@@ -7,7 +7,7 @@ environments:
   dev:
     values:
       - platform:
-          region: us-east-2
+          region: eu-west-2
           default_ingress_domain: example.com
           default_alb_ingress_group: default
   preview:
