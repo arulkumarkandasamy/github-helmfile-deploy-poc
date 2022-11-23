@@ -34,6 +34,7 @@
             cluster: eks-dev
             environment: dev
             namespace: dev
+            helmfile-path: deploy/helmfile
             image: nginx
             image-tag: latest
             operation: deploy
