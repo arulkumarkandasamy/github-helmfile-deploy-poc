@@ -1,9 +1,9 @@
-# repositories:
-#   - name: github
-#     url: https://ghcr.io
+repositories:
+  - name: generic
+    url: https://ghcr.io/arulkumarkandasamy
 
 releases:
   - name: python
-    chart:  ./charts/app
+    chart:  generic/chart
     values:
       - ./values/python.yaml

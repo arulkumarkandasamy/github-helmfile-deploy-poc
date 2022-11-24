@@ -1,3 +1,10 @@
-app:
-  container:
-    image: ghcr.io/arulkumarkandasamy/python:latest
+image:
+  repository: ghcr.io/arulkumarkandasamy/python
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+imagePullSecrets: [name: regcred]
+
+container:
+  port: 5000
