@@ -18,6 +18,30 @@
 
         - name: Checkout repository
           uses: actions/checkout@v3
+
+        - name: Check
+          run: |
+            echo "${{ github.event.repository.owner.login }}"
+            echo "${{ github.event.repository.name }}"
+
+        - name: Log in to the Container registry
+          uses: docker/login-action@v2.1.0
+          with:
+            registry: ${{ env.REGISTRY }}
+            username: ${{ github.actor }}
+            password: ${{ secrets.GITHUB_TOKEN }}
+
+        - name: Docker build publish
+          uses: cloudposse/github-action-docker-build-push@main
+          id: build
+          with:
+            workdir: ./app
+            registry: ${{ env.REGISTRY }}
+            organization: "${{ github.event.repository.owner.login }}"
+            repository: "python"
+            login: ${{ github.actor }}
+            password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
         
         - name: AWS Credentials
           uses: aws-actions/configure-aws-credentials@v1

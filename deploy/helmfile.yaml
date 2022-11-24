@@ -1,0 +1,9 @@
+repositories:
+  - name: github
+    url: https://ghcr.io
+
+releases:
+  - name: python
+    chart:  ./charts/app
+    values:
+      - ./values/python.yaml
