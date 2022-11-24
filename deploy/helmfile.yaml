@@ -1,6 +1,6 @@
 repositories:
   - name: generic
-    url: https://ghcr.io/arulkumarkandasamy
+    url: https://arulkumarkandasamy.github.io/
 
 releases:
   - name: python
