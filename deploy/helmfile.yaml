@@ -1,6 +1,6 @@
-repositories:
-  - name: github
-    url: https://ghcr.io
+# repositories:
+#   - name: github
+#     url: https://ghcr.io
 
 releases:
   - name: python
