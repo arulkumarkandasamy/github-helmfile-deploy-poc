@@ -14,9 +14,6 @@
   jobs:
     deploy:
       runs-on: ubuntu-latest
-      environment:
-        name: dev
-        url: ${{ steps.deploy.outputs.webapp-url }}  
       steps:
 
         - name: Checkout repository
@@ -59,9 +56,8 @@
           with:
             aws-region: eu-west-2
             cluster: eks-dev
-            environment: dev
             namespace: dev
-            helmfile-path: deploy/helmfile
+            helmfile-path: deploy
             image: nginx
             image-tag: latest
             operation: deploy
