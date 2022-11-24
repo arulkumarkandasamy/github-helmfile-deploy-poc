@@ -1,9 +1,9 @@
 repositories:
   - name: generic
-    url: https://arulkumarkandasamy.github.io/
+    url: https://github.com/arulkumarkandasamy/
 
 releases:
   - name: python
-    chart:  generic/chart
+    chart:  generic/hello-world-chart/chart
     values:
       - ./values/python.yaml
