@@ -8,24 +8,47 @@
     id-token: write # required to use OIDC authentication
     contents: read # required to checkout the code from the repo
 
+  env:
+    REGISTRY: ghcr.io
+
   jobs:
     deploy:
       runs-on: ubuntu-latest
-      environment:
-        name: preview
-        url: ${{ steps.deploy.outputs.webapp-url }}  
       steps:
-        
-        - name: Configure AWS Credentials
-          uses: aws-actions/configure-aws-credentials@v1.7.0
-          with:
-            aws-region: eu-west-2
-            role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
-            role-session-name: deploy
 
-        - name: Update Kubeconfig
+        - name: Checkout repository
+          uses: actions/checkout@v3
+
+        - name: Check
           run: |
-            aws eks update-kubeconfig --name eks-dev --region eu-west-2 --role-arn ${{ secrets.ROLE_TO_ASSUME }}
+            echo "${{ github.event.repository.owner.login }}"
+            echo "${{ github.event.repository.name }}"
+
+        - name: Log in to the Container registry
+          uses: docker/login-action@v2.1.0
+          with:
+            registry: ${{ env.REGISTRY }}
+            username: ${{ github.actor }}
+            password: ${{ secrets.GITHUB_TOKEN }}
+
+        - name: Docker build publish
+          uses: cloudposse/github-action-docker-build-push@main
+          id: build
+          with:
+            workdir: ./app
+            registry: ${{ env.REGISTRY }}
+            organization: "${{ github.event.repository.owner.login }}"
+            repository: "python"
+            login: ${{ github.actor }}
+            password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+        
+        - name: AWS Credentials
+          uses: aws-actions/configure-aws-credentials@v1
+          with:
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-region: eu-west-2
       
         - name: Deploy
           uses: cloudposse/github-action-deploy-helmfile@main
@@ -33,8 +56,8 @@
           with:
             aws-region: eu-west-2
             cluster: eks-dev
-            environment: preview
-            namespace: preview
+            namespace: dev
+            helmfile-path: deploy
             image: nginx
             image-tag: latest
             operation: deploy
