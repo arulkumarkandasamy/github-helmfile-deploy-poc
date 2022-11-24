@@ -4,6 +4,7 @@ app:
   replicaCount: 1
   container:
     image: add-image-here
+    imagepullpolicy: Always
     port: 8080
     config: []
     env: 
@@ -12,3 +13,4 @@ app:
   service:
     type: ClusterIP
     port: 8080
+imagePullSecrets: [name: regcred]

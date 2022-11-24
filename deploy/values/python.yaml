@@ -1,4 +1,3 @@
-image:
-  registry: "ghcr.io/arulkumarkandasamy"
-  repository: python
-  tag: "latest"
+app:
+  container:
+    image: ghcr.io/arulkumarkandasamy/python:latest
