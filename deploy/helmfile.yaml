@@ -1,6 +1,6 @@
-# repositories:
-#   - name: generic
-#     url: https://github.com/arulkumarkandasamy/
+repositories:
+  - name: generic
+    url: https://github.com/arulkumarkandasamy/helm-chart-repo/releases/download/gen-chart-0.1.0/gen-chart-0.1.0.tgz
 
 # repositories:
 #   - name: "cloudposse-incubator"
@@ -26,7 +26,7 @@
 
 releases:
   - name: "python-dep"
-    chart: "./charts/hello-world"
+    chart: "generic/gen-chart"
     createNamespace: true
     # wait: true
     # atomic: true
@@ -38,5 +38,3 @@ releases:
           tag: {{ requiredEnv "IMAGE_TAG" }}
         replicaCount: 1
         imagePullSecrets: [name: regcred]
-        container:
-          port: 5000
