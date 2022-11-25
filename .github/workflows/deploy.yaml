@@ -53,10 +53,18 @@
             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             aws-region: eu-west-2
+
+        - name: Output Image
+          run: |
+            echo "${{ steps.build.outputs.image }}"
+            echo ${{ steps.build.outputs.tag }}
       
         - name: Deploy
           uses: cloudposse/github-action-deploy-helmfile@main
           id: deploy
+          env:
+            IMAGE_NAME: ${{ steps.build.outputs.image }}
+            IMAGE_TAG: ${{ steps.build.outputs.tag }}
           with:
             aws-region: eu-west-2
             cluster: eks-dev
