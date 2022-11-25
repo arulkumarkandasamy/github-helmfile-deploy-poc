@@ -2,9 +2,9 @@
 #   - name: generic
 #     url: https://github.com/arulkumarkandasamy/
 
-repositories:
-  - name: "cloudposse-incubator"
-    url: "https://charts.cloudposse.com/incubator/"
+# repositories:
+#   - name: "cloudposse-incubator"
+#     url: "https://charts.cloudposse.com/incubator/"
 
 
 # environments:
