@@ -10,6 +10,8 @@
 
   env:
     REGISTRY: ghcr.io
+    IMAGE_NAME: ${{ needs.build.outputs.image }}
+    IMAGE_TAG: ${{ needs.build.outputs.tag }}
 
   jobs:
     deploy:
@@ -23,6 +25,8 @@
           run: |
             echo "${{ github.event.repository.owner.login }}"
             echo "${{ github.event.repository.name }}"
+            echo "${{ needs.build.outputs.image }}"
+            echo "${{ needs.build.outputs.image }}"
 
         - name: Log in to the Container registry
           uses: docker/login-action@v2.1.0

@@ -1,9 +1,35 @@
+# repositories:
+#   - name: generic
+#     url: https://github.com/arulkumarkandasamy/
+
 repositories:
-  - name: generic
-    url: https://github.com/arulkumarkandasamy/
+  - name: "cloudposse-incubator"
+    url: "https://charts.cloudposse.com/incubator/"
+
+
+environments:
+  default:
+    values:
+      - platform:
+          region: us-east-2
+          default_ingress_domain: example.com
+          default_alb_ingress_group: default
+  preview:
+  staging:
+  production:
+  dev:
+  qa1:
+  qa2:
+  qa3:
+  qa4:
+  hotfix:
 
 releases:
-  - name: python
-    chart:  generic/hello-world-chart/chart
+  - name: "App Deployment"
+    chart: "cloudposse-incubator/monochart"
+    version: "0.23.1"
+    createNamespace: true
+    wait: true
+    atomic: true
     values:
-      - ./values/python.yaml
+      - ./values/pythonapp.yaml
