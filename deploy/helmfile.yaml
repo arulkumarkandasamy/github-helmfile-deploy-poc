@@ -25,7 +25,7 @@ environments:
   hotfix:
 
 releases:
-  - name: "PythonDeployment"
+  - name: "python-dep"
     chart: "cloudposse-incubator/monochart"
     version: "0.23.1"
     createNamespace: true
