@@ -26,7 +26,7 @@
 
 releases:
   - name: "python-dep"
-    chart: "./charts/helloworld"
+    chart: "./charts/hello-world"
     createNamespace: true
     wait: true
     atomic: true
