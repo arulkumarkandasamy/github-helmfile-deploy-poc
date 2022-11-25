@@ -11,7 +11,7 @@
 
 image:
   repository: ghcr.io/arulkumarkandasamy/python
-  tag: sha-de1f2e1
+  tag: sha-7bdbdf1
   pullPolicy: Always
   pullSecrets:
     - "regcred"
