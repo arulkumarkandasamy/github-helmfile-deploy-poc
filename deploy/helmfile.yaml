@@ -28,7 +28,7 @@ releases:
   - name: "python-dep"
     chart: "./charts/hello-world"
     createNamespace: true
-    wait: true
-    atomic: true
+    # wait: true
+    # atomic: true
     values:
       - ./values/pythonapp.yaml
