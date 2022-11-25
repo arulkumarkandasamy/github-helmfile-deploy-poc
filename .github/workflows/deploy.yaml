@@ -10,8 +10,8 @@
 
   env:
     REGISTRY: ghcr.io
-    IMAGE_NAME: ${{ needs.build.outputs.image }}
-    IMAGE_TAG: ${{ needs.build.outputs.tag }}
+    #IMAGE_NAME: ${{ needs.build.outputs.image }}
+    #IMAGE_TAG: ${{ needs.build.outputs.tag }}
 
   jobs:
     deploy:
