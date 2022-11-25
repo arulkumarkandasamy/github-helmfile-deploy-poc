@@ -7,22 +7,22 @@ repositories:
     url: "https://charts.cloudposse.com/incubator/"
 
 
-environments:
-  default:
-    values:
-      - platform:
-          region: us-east-2
-          default_ingress_domain: example.com
-          default_alb_ingress_group: default
-  preview:
-  staging:
-  production:
-  dev:
-  qa1:
-  qa2:
-  qa3:
-  qa4:
-  hotfix:
+# environments:
+#   default:
+#     values:
+#       - platform:
+#           region: us-east-2
+#           default_ingress_domain: example.com
+#           default_alb_ingress_group: default
+#   preview:
+#   staging:
+#   production:
+#   dev:
+#   qa1:
+#   qa2:
+#   qa3:
+#   qa4:
+#   hotfix:
 
 releases:
   - name: "python-dep"
