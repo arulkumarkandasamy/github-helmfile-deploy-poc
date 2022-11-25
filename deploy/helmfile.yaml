@@ -1,6 +1,6 @@
 repositories:
   - name: generic
-    url: https://github.com/arulkumarkandasamy/helm-chart-repo/releases/download/gen-chart-0.1.0/gen-chart-0.1.0.tgz
+    url: https://arulkumarkandasamy.github.io/helm-chart-repo/charts
 
 # repositories:
 #   - name: "cloudposse-incubator"
