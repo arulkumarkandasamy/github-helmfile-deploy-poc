@@ -42,8 +42,8 @@ releases:
   - name: "nginx"
     chart: "monochart1/monochart"
     createNamespace: true
-    wait: true
-    atomic: true
+    # wait: true
+    # atomic: true
     values:
       - ./values/nginxapp.yaml    
       - image:
