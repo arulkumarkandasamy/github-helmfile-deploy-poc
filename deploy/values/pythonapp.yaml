@@ -23,6 +23,8 @@ container:
 service:
   port: 5000
 
+initialDelaySeconds: 5
+
 # replicaCount: 1
  
 # serviceAccountName: my-service-account
