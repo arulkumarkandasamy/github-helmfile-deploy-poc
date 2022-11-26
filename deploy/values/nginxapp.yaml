@@ -3,6 +3,7 @@ service:
   enabled: true
   type: LoadBalancer
   ports:
-    port:
+    name:
       internal: 80
+      external: 80
       protocol: http
