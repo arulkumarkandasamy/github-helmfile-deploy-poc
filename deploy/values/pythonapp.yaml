@@ -20,13 +20,6 @@ imagePullSecrets: [name: regcred]
 container:
   port: 5000
 
-# image:
-#   repository: ghcr.io/arulkumarkandasamy/python
-#   tag: sha-7bdbdf1
-#   pullPolicy: Always
-#   pullSecrets:
-#     - "regcred"
-
 # replicaCount: 1
  
 # serviceAccountName: my-service-account
