@@ -30,9 +30,8 @@ releases:
     createNamespace: true
     # wait: true
     # atomic: true
-    # values:
-    #   - ./values/pythonapp.yaml
     values:
+      - ./values/pythonapp.yaml
       - image:
           repository: {{ requiredEnv "IMAGE_NAME" }}
           tag: {{ requiredEnv "IMAGE_TAG" }}
