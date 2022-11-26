@@ -20,6 +20,9 @@ imagePullSecrets: [name: regcred]
 container:
   port: 5000
 
+service:
+  port: 5000
+
 # replicaCount: 1
  
 # serviceAccountName: my-service-account
