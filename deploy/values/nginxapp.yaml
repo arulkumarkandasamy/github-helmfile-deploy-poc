@@ -6,4 +6,3 @@ service:
     name:
       internal: 80
       external: 80
-      protocol: http
