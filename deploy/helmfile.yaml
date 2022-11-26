@@ -2,7 +2,7 @@ repositories:
   - name: generic
     url: https://arulkumarkandasamy.github.io/helm-chart-repo/
 
-  - name: monochart
+  - name: monochart1
     url: https://arulkumarkandasamy.github.io/monochart/
 
 
@@ -40,7 +40,7 @@ releases:
         imagePullSecrets: [name: regcred]
 
   - name: "nginx"
-    chart: "monochart/gen-helm-chart"
+    chart: "monochart1/monochart"
     createNamespace: true
     wait: true
     atomic: true
