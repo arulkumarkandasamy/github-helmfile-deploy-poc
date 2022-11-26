@@ -2,3 +2,7 @@ replicaCount: 2
 service:
   enabled: true
   type: LoadBalancer
+  ports:
+    name:
+      internal: 80
+      protocol: http

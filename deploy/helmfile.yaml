@@ -50,7 +50,3 @@ releases:
           repository: nginx
           tag: latest
           pullPolicy: Always
-        ports:
-          name:
-            internal: 80
-            protocol: http
