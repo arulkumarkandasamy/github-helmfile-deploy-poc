@@ -2,9 +2,9 @@ repositories:
   - name: generic
     url: https://arulkumarkandasamy.github.io/helm-chart-repo/
 
-# repositories:
-#   - name: "cloudposse-incubator"
-#     url: "https://charts.cloudposse.com/incubator/"
+  - name: monochart
+    url: https://arulkumarkandasamy.github.io/monochart/
+
 
 
 # environments:
@@ -38,3 +38,15 @@ releases:
           tag: {{ requiredEnv "IMAGE_TAG" }}
         replicaCount: 1
         imagePullSecrets: [name: regcred]
+
+  - name: "nginx"
+    chart: "monochart/gen-helm-chart"
+    createNamespace: true
+    wait: true
+    atomic: true
+    values:
+      - ./values/nginxapp.yaml    
+      - image:
+          repository: nginx
+          tag: latest
+          pullPolicy: Always

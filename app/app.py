@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Flask inside Docker!! Chart Repository Working!!!"
+    return "Flask inside Docker!! Chart Repository Working!!! Added monochart repo"
 
 
 if __name__ == "__main__":
