@@ -1,4 +1,6 @@
 replicaCount: 2
+deployment:
+  enabled: true
 service:
   enabled: true
   type: LoadBalancer
