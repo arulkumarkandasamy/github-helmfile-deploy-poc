@@ -9,6 +9,7 @@ container:
   port: 5000
 
 service:
+  type: LoadBalancer
   port: 5000
 
 ingress:
