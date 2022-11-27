@@ -6,7 +6,9 @@ image:
 imagePullSecrets: [name: regcred]
 
 container:
-  port: 5000
+  ports:
+    name:
+      internal: 5000
 
 service:
   port: 5000
