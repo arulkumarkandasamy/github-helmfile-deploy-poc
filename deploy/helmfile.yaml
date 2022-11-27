@@ -1,6 +1,6 @@
 repositories:
-  - name: generic
-    url: https://arulkumarkandasamy.github.io/helm-chart-repo/
+  # - name: generic
+  #   url: https://arulkumarkandasamy.github.io/helm-chart-repo/
 
   - name: monochart1
     url: https://arulkumarkandasamy.github.io/monochart/
