@@ -23,7 +23,7 @@ repositories:
 
 releases:
   - name: "python-dep"
-    chart: "generic/gen-chart"
+    chart: "./charts/gen-chart"
     createNamespace: true
     # wait: true
     # atomic: true

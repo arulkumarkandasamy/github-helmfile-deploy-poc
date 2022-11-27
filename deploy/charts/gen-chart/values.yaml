@@ -1,4 +1,4 @@
-# Default values for hello-world.
+# Default values for gen-chart.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -9,6 +9,9 @@ image:
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
+
+container:
+  ports: {}
 
 imagePullSecrets: []
 nameOverride: ""
@@ -36,9 +39,6 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-container:
-  port: 80
-
 service:
   type: ClusterIP
   port: 80
@@ -58,6 +58,17 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+liveness:
+  path: /
+  port: 80
+  initialDelaySeconds: 30
+  periodSeconds: 5
+readiness:
+  path: /
+  port: 80
+  initialDelaySeconds: 30
+  periodSeconds: 5
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
