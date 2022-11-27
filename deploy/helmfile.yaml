@@ -5,6 +5,9 @@ repositories:
   - name: monochart1
     url: https://arulkumarkandasamy.github.io/monochart/
 
+  - name: ingress-controller
+    url: https://kubernetes.github.io/ingress-nginx
+
 
 
 # environments:
@@ -34,14 +37,17 @@ releases:
           tag: {{ requiredEnv "IMAGE_TAG" }}
         replicaCount: 1
 
-  - name: "nginx"
-    chart: "monochart1/monochart"
-    createNamespace: true
-    # wait: true
-    # atomic: true
-    values:
-      - ./values/nginxapp.yaml    
-      - image:
-          repository: nginx
-          tag: latest
-          pullPolicy: Always
+  # - name: "nginx"
+  #   chart: "monochart1/monochart"
+  #   createNamespace: true
+  #   # wait: true
+  #   # atomic: true
+  #   values:
+  #     - ./values/nginxapp.yaml    
+  #     - image:
+  #         repository: nginx
+  #         tag: latest
+  #         pullPolicy: Always
+
+  - name: ingress-controller
+    chart: ingress-controller/ingress-nginx
