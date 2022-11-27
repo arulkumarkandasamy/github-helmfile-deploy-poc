@@ -33,7 +33,6 @@ releases:
           repository: {{ requiredEnv "IMAGE_NAME" }}
           tag: {{ requiredEnv "IMAGE_TAG" }}
         replicaCount: 1
-        imagePullSecrets: [name: regcred]
 
   - name: "nginx"
     chart: "monochart1/monochart"
