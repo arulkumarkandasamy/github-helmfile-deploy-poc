@@ -1,0 +1,10 @@
+replicaCount: 2
+deployment:
+  enabled: true
+service:
+  enabled: true
+  type: LoadBalancer
+  ports:
+    name:
+      internal: 80
+      external: 80

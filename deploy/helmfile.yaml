@@ -1,0 +1,53 @@
+repositories:
+  # - name: generic
+  #   url: https://arulkumarkandasamy.github.io/helm-chart-repo/
+
+  - name: monochart1
+    url: https://arulkumarkandasamy.github.io/monochart/
+
+  - name: ingress-controller
+    url: https://kubernetes.github.io/ingress-nginx
+
+
+
+# environments:
+#   default:
+#     values:
+#       - platform:
+#           region: us-east-2
+#           default_ingress_domain: example.com
+#           default_alb_ingress_group: default
+#   preview:
+#   staging:
+#   production:
+#   dev:
+#   qa:
+#   hotfix:
+
+releases:
+  - name: "python-dep"
+    chart: "./charts/gen-chart"
+    createNamespace: true
+    # wait: true
+    # atomic: true
+    values:
+      - ./values/pythonapp.yaml
+      - image:
+          repository: {{ requiredEnv "IMAGE_NAME" }}
+          tag: {{ requiredEnv "IMAGE_TAG" }}
+        replicaCount: 1
+
+  # - name: "nginx"
+  #   chart: "monochart1/monochart"
+  #   createNamespace: true
+  #   # wait: true
+  #   # atomic: true
+  #   values:
+  #     - ./values/nginxapp.yaml    
+  #     - image:
+  #         repository: nginx
+  #         tag: latest
+  #         pullPolicy: Always
+
+  - name: ingress-controller
+    chart: ingress-controller/ingress-nginx
