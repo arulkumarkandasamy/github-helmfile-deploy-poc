@@ -11,16 +11,14 @@ container:
 service:
   port: 5000
 
-probes: #{}
-  livenessProbe:
-    httpGet:
-      path: /health
-      port: 5000
-    initialDelaySeconds: 30
-    periodSeconds: 5
-  readinessProbe:
-    httpGet:
-      path: /ready
-      port: 5000
-    initialDelaySeconds: 30
-    periodSeconds: 5
+
+liveness:
+  path: /health
+  port: 5000
+  initialDelaySeconds: 30
+  periodSeconds: 5
+readiness:
+  path: /ready
+  port: 5000
+  initialDelaySeconds: 30
+  periodSeconds: 5
