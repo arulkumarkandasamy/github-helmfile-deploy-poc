@@ -15,10 +15,10 @@ service:
 liveness:
   path: /health
   port: 5000
-  initialDelaySeconds: 30
+  initialDelaySeconds: 25
   periodSeconds: 5
 readiness:
   path: /ready
   port: 5000
-  initialDelaySeconds: 30
+  initialDelaySeconds: 25
   periodSeconds: 5
