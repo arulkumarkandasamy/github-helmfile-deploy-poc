@@ -11,6 +11,22 @@ container:
 service:
   port: 5000
 
+ingress:
+  enabled: true
+  className: ""
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: github.action-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - github.action-example.local
 
 liveness:
   path: /
