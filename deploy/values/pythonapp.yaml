@@ -13,12 +13,12 @@ service:
 
 
 liveness:
-  path: /health
+  path: /
   port: 5000
   initialDelaySeconds: 25
   periodSeconds: 5
 readiness:
-  path: /ready
+  path: /
   port: 5000
   initialDelaySeconds: 25
   periodSeconds: 5
